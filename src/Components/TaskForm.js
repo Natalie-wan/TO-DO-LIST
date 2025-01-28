@@ -24,5 +24,14 @@ function TaskForm({ onAddTask }) {
             priority,
             dueDate,
         };
-    }
+
+        //Calling parent fuction to add the new task
+        onAddTask(newTask);
+
+        //Clear form input fields
+        setTitle("");
+        setCategory("");
+        setPriority("");
+        setDueDate("");
+    };
 }
