@@ -54,6 +54,12 @@ function TaskForm({ onAddTask }) {
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option> 
                 </select>
+
+                {/**DueDate input */}
+                <input type="date" value={dueDate} 
+                onChange={(e) => setDueDate(e.target.value)} />
+
+                
             </form>
         </div>
     )
