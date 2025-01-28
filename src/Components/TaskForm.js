@@ -59,8 +59,11 @@ function TaskForm({ onAddTask }) {
                 <input type="date" value={dueDate} 
                 onChange={(e) => setDueDate(e.target.value)} />
 
-                
+                {/**Submit button */}
+                <button type="submit">Add Task</button>
             </form>
         </div>
-    )
+    );
 }
+
+export default TaskForm;
