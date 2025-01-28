@@ -40,7 +40,12 @@ function TaskForm({ onAddTask }) {
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px"}}>
                 <h2>Add New Task</h2>
                 {/**Title input */}
-                <input type="text" placeholder="Task Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input type="text" placeholder="Task Title" value={title} 
+                onChange={(e) => setTitle(e.target.value)} />
+
+                {/**Category input */}
+                <input type="text" placeholder="Category" value={category} 
+                onChange={(e) => setCategory(e.target.value)} />
             </form>
         </div>
     )
