@@ -46,6 +46,14 @@ function TaskForm({ onAddTask }) {
                 {/**Category input */}
                 <input type="text" placeholder="Category" value={category} 
                 onChange={(e) => setCategory(e.target.value)} />
+
+                {/**Priority dropdown */}
+                <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+                    <option value="" disabled>Select Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option> 
+                </select>
             </form>
         </div>
     )
