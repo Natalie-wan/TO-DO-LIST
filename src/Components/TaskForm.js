@@ -6,4 +6,9 @@ function TaskForm({ onAddTask }) {
     const [category, setCategory] = useState("");
     const [priority, setPriority] = useState("");
     const [dueDate, setDueDate] = useState("");
+
+    //Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 }
