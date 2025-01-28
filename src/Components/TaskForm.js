@@ -34,4 +34,14 @@ function TaskForm({ onAddTask }) {
         setPriority("");
         setDueDate("");
     };
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px"}}>
+                <h2>Add New Task</h2>
+                {/**Title input */}
+                <input type="text" placeholder="Task Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+            </form>
+        </div>
+    )
 }
