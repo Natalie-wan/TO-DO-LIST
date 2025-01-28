@@ -10,5 +10,11 @@ function TaskForm({ onAddTask }) {
     //Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        //Validate input fields
+        if (!title || !category || !priority || !dueDate) {
+            alert("Please fill in all fields.");
+            return;
+        }
     }
 }
