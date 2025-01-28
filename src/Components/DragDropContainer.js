@@ -6,6 +6,17 @@
 
  function DragDropContainer (){
      const [tasks,setTasks] = useState([]);
-     
+
+      useEffect(() =>{
+        axios.get('http://localhost:3001/tasks')
+         .then (response =>{
+             setTasks(response.data);
+         })
+
+         .catch(error=>{
+            console.error(error);
+         });
+
+      }, []);
 
  }
