@@ -16,5 +16,13 @@ function TaskForm({ onAddTask }) {
             alert("Please fill in all fields.");
             return;
         }
+
+        //New task object
+        const newTask = {
+            title,
+            category,
+            priority,
+            dueDate,
+        };
     }
 }
