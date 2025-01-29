@@ -10,7 +10,7 @@
         {
             "id": 2,
             "title":"Work on the Labs",
-            "category": "persnonal",
+            "category": "personal",
             "priority": "Medium",
             "dueDate": "2025-02-15"
         },
@@ -18,7 +18,7 @@
             "id": 3,
             "title":"Submit end of year Report",
             "category": "Work",
-            "priority": "low",
+            "priority": "Low",
             "dueDate": "2025-03-01"
         },
 
@@ -36,13 +36,13 @@
             "category": "Leisure",
             "priority": "Medium",
             "dueDate": "2025-02-16"
-        }
+        },
         {
             "id": 6,
             "title":"Listening to music",
             "category": "Leisure",
-            "priority": "Medium",
-            "dueDate": "2025-02-16"
+            "priority": "Low",
+            "dueDate": "2025-02-19"
         }
     ]
 }
