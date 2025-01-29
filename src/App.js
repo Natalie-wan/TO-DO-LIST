@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TaskForm from './Components/TaskForm';
+import TaskList from './Components/TaskList';
+//import './App.css';
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  //Add new task handler
+  const handleAddTask = (newTask) => {
+    fetch("http://localhost:3001/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTask),
+    })
+    .then((response) => response.json())
+    .then((createdTask) => setTasks((prevTasks) => [ ...prevTasks, createdTask]))
+    .catch((error) => console.error("Error:", error));
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>To-Do List</h1>
+      <TaskForm onAddTask={handleAddTask} />
+      <TaskList tasks={tasks} />
     </div>
   );
 }
