@@ -31,8 +31,14 @@
         if (source.droppableId !== destination.droppableId) {
             return;
         }
-        
 
-       }
+        const reorderedTasks = [...tasks];
+        const[removed] = reorderedTasks.splice(source.index,1);
+
+        reorderedTasks.splice(destination.index,0,removed);
+
+        setTasks(reorderedTasks);
+
+       };
 
  }
