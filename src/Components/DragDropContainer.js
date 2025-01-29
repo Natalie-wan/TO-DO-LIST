@@ -1,93 +1,117 @@
-// importing the necessary content from the downloaded react-beautify-dnd
- import { DragDropContext,Droppable,Draggable } from "react-beautiful-dnd";
- //importing libraries
-  import React,{useState,useEffect} from "react";
-  import axios from 'axios'; // used for making http request to fetch data from the server 
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
- function DragDropContainer (){
-     const [tasks,setTasks] = useState([]);
+function DragDropContainer() {
+  const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-     //useEffects that fetch tasks when component mounts
-      useEffect(() =>{
-        axios.get('http://localhost:3001/tasks') // Get request fetching tasks from the server
-         .then (response =>{  
-            //update the tasks state with the fetched data
-             setTasks(response.data);
-         })
-
-         .catch(error=>{
-            //log any error that occurs during the request
-            console.error(error);
-         });
-
-      }, []); //empty dependancies arrays ensure to run once on mount 
-
-
-       const handleDragEnd = (result) => {
-        if (!result.destination) return;
-
-        const { source, destination } =result;
-
-        if (source.droppableId !== destination.droppableId) {
-            return;
+  // Fetch tasks from the server when the component mounts
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/tasks")
+      .then((response) => {
+        if (Array.isArray(response.data)) {
+          setTasks(response.data);
+        } else {
+          setError("Invalid data format received from the server.");
         }
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching tasks:", error);
+        setError("Failed to load tasks. Please try again later.");
+        setIsLoading(false);
+      });
+  }, []);
 
-        const reorderedTasks = [...tasks];
-        const[removed] = reorderedTasks.splice(source.index,1);
+  // Handle drag-and-drop reordering
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
 
-        reorderedTasks.splice(destination.index,0,removed);
+    const { source, destination } = result;
 
-        setTasks(reorderedTasks);
+    if (source.droppableId !== destination.droppableId) return;
 
-       };
+    const reorderedTasks = [...tasks];
+    const [removed] = reorderedTasks.splice(source.index, 1);
+    reorderedTasks.splice(destination.index, 0, removed);
 
-       return (
-         <DragDropContext onDragEnd={handleDragEnd}>
-         <Droppable droppableId="droppable-1">
-            {
-                (provided)=> (
-                    <div {...provided.droppableProps} ref={provided.innerRef}>
-                        {tasks.map((task,index) => (
-                            <Draggable key={task.id} draggableId={task.id.toString()} index={index} >
+    setTasks(reorderedTasks);
+  };
 
-                                {
-                                    (provided) => (
-                                        <div>
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            ref={provided.innerRef}
+  // Render loading state while data is being fetched
+  if (isLoading) {
+    return <div>Loading tasks...</div>;
+  }
 
-                                            style = {{
-                                                ...provided.draggableProps.style,
-                                                backgroundColor: task.priority === 'High' ? 'red' : task.priority === 'Medium' ? 'orange' :'green',
-                                                color: task.priority === 'High' ? 'white' : 'black',
-                                                padding:'10px',
-                                                margin: '10px',
-                                                border: '1px solid #ccc'
-                                            }} 
-                                            
-                                        </div>
-                                    )
-                                }
+  // Render error state if there's an error
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-
-
-
-                            </Draggable>
-                        ))}
+  // Render the drag-and-drop container
+  return (
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="droppable-1">
+        {(provided) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              minHeight: "100px",
+            }}
+          >
+            {tasks.length > 0 ? (
+              tasks.map((task, index) => (
+                <Draggable
+                  key={task.id}
+                  draggableId={task.id.toString()}
+                  index={index}
+                >
+                  {(provided) => (
+                    <div
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef}
+                      role="button"
+                      aria-label={`Drag and drop task: ${task.title}`}
+                      tabIndex={0}
+                      style={{
+                        ...provided.draggableProps.style,
+                        backgroundColor:
+                          task.priority === "High"
+                            ? "red"
+                            : task.priority === "Medium"
+                            ? "orange"
+                            : "green",
+                        color: task.priority === "High" ? "white" : "black",
+                        padding: "10px",
+                        margin: "10px",
+                        border: "1px solid #ccc",
+                      }}
+                    >
+                      <h2>{task.title}</h2>
+                      <p>Category: {task.category}</p>
+                      <p>Priority: {task.priority}</p>
+                      <p>Due Date: {task.dueDate}</p>
                     </div>
-                )
-            }
+                  )}
+                </Draggable>
+              ))
+            ) : (
+              <div>No tasks available.</div>
+            )}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
+}
 
-         </Droppable>
-
-
-
-
-
-
-         </DragDropContext>
-
-       )
-
- }
+export default DragDropContainer;
