@@ -56,6 +56,15 @@
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             ref={provided.innerRef}
+
+                                            style = {{
+                                                ...provided.draggableProps.style,
+                                                backgroundColor: task.priority === 'High' ? 'red' : task.priority === 'Medium' ? 'orange' :'green',
+                                                color: task.priority === 'High' ? 'white' : 'black',
+                                                padding:'10px',
+                                                margin: '10px',
+                                                border: '1px solid #ccc'
+                                            }} 
                                             
                                         </div>
                                     )
