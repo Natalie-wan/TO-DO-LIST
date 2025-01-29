@@ -2,16 +2,16 @@
     "tasks":[
         {
             "id": 1,
-            "title":"Buy Groceries",
-            "category": "personal",
+            "title":"Go for Shopping",
+            "category": "Finance",
             "priority": "High",
             "dueDate": "2025-02-01"
         },
         {
             "id": 2,
             "title":"Work on the Labs",
-            "category": "school",
-            "priority": "High",
+            "category": "persnonal",
+            "priority": "Medium",
             "dueDate": "2025-02-15"
         },
         {
@@ -20,7 +20,22 @@
             "category": "Work",
             "priority": "low",
             "dueDate": "2025-03-01"
+        },
+
+        {
+            "id": 4,
+            "title":"Go to gym ",
+            "category": "Health",
+            "priority": "High",
+            "dueDate": "2025-01-31"
+        },
+
+          {
+            "id": 5,
+            "title":"Journaling",
+            "category": "Leisure",
+            "priority": "Medium",
+            "dueDate": "2025-02-16"
         }
-        
     ]
 }
