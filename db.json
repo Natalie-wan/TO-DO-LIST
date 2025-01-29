@@ -22,7 +22,6 @@
             "priority": "low",
             "dueDate": "2025-03-01"
         },
-
         {
             "id": 4,
             "title":"Go to gym ",
@@ -30,14 +29,13 @@
             "priority": "High",
             "dueDate": "2025-01-31"
         },
-
-          {
+        {
             "id": 5,
             "title":"Journaling",
             "category": "Leisure",
             "priority": "Medium",
             "dueDate": "2025-02-16"
-        }
+        },
         {
             "id": 6,
             "title":"Listening to music",
