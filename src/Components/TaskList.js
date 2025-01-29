@@ -16,10 +16,20 @@ function TaskList ({ tasks }) {
                     }
 
                     return (
-                        
-                    )
+                        <li key={task.id} style={{
+                            ...priorityStyle,
+                            marginBottom: "10px",
+                            padding: "10px",
+                            borderRadius: "5px",
+                        }}>
+                            <strong>{task.title}</strong> - {task.category} - {task.priority} - {""}
+                            {task.dueDate} 
+                        </li>
+                    );
                 })}
             </ul>
         </div>
     )
 }
+
+export default TaskList;
