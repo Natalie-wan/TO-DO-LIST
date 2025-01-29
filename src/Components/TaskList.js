@@ -1,9 +1,39 @@
 import React from "react";
 
 function TaskList ({ tasks }) {
+    //Inline CSS Styles
+    const styles = {
+        container: {
+            maxWidth: "500px",
+            margin: "20px",
+            padding: "20px",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#f9f9f9",
+        },
+        heading: {
+            textAlign: "center",
+            marginBottom: "10px",
+        },
+        list: {
+            listStyle: "none",
+            padding: "0",
+        },
+        taskItem: {
+            marginBottom: "10px",
+            padding: "12px",
+            borderRadius: "5px",
+            fontSize: "16px",
+            fontWeight: "500",
+            boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.1)",
+        },    
+    }
+
     return (
-        <div>
-            <ul style={{ listStyle: "none", padding: "0" }}>
+        <div style={styles.container}>
+            <h2 style={styles.heading}></h2>
+            <ul style={styles.list}>
                 {tasks.map((task) => {
                     //Determine task styling based on priority
                     let priorityStyle = {};
@@ -16,12 +46,7 @@ function TaskList ({ tasks }) {
                     }
 
                     return (
-                        <li key={task.id} style={{
-                            ...priorityStyle,
-                            marginBottom: "10px",
-                            padding: "10px",
-                            borderRadius: "5px",
-                        }}>
+                        <li key={task.id} style={{...styles.taskItem, ...priorityStyle}}>
                             <strong>{task.title}</strong> - {task.category} - {task.priority} - {""}
                             {task.dueDate} 
                         </li>
