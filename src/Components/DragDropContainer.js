@@ -4,36 +4,41 @@ import axios from "axios";
 
 function DragDropContainer() {
   const [tasks, setTasks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Fetch tasks from the server when the component mounts
   useEffect(() => {
     axios
       .get("http://localhost:3001/tasks")
       .then((response) => {
-        setTasks(response.data); // Update tasks state with fetched data
-        setIsLoading(false); // Data has been loaded
+        if (Array.isArray(response.data)) {
+          setTasks(response.data);
+        } else {
+          setError("Invalid data format received from the server.");
+        }
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching tasks:", error);
-        setIsLoading(false); // Stop loading even if there's an error
+        setError("Failed to load tasks. Please try again later.");
+        setIsLoading(false);
       });
   }, []);
 
   // Handle drag-and-drop reordering
   const handleDragEnd = (result) => {
-    if (!result.destination) return; // If dropped outside the list, do nothing
+    if (!result.destination) return;
 
     const { source, destination } = result;
 
-    if (source.droppableId !== destination.droppableId) return; // If dropped in a different list, do nothing
+    if (source.droppableId !== destination.droppableId) return;
 
-    // Reorder tasks
     const reorderedTasks = [...tasks];
     const [removed] = reorderedTasks.splice(source.index, 1);
     reorderedTasks.splice(destination.index, 0, removed);
 
-    setTasks(reorderedTasks); // Update tasks state with the new order
+    setTasks(reorderedTasks);
   };
 
   // Render loading state while data is being fetched
@@ -41,17 +46,31 @@ function DragDropContainer() {
     return <div>Loading tasks...</div>;
   }
 
+  // Render error state if there's an error
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   // Render the drag-and-drop container
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="droppable-1">
         {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
-            {tasks.length > 0 ? ( // Ensure tasks are available before rendering Draggable components
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              minHeight: "100px",
+            }}
+          >
+            {tasks.length > 0 ? (
               tasks.map((task, index) => (
                 <Draggable
                   key={task.id}
-                  draggableId={task.id.toString()} // Ensure draggableId is a string
+                  draggableId={task.id.toString()}
                   index={index}
                 >
                   {(provided) => (
@@ -59,6 +78,9 @@ function DragDropContainer() {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef}
+                      role="button"
+                      aria-label={`Drag and drop task: ${task.title}`}
+                      tabIndex={0}
                       style={{
                         ...provided.draggableProps.style,
                         backgroundColor:
@@ -82,7 +104,7 @@ function DragDropContainer() {
                 </Draggable>
               ))
             ) : (
-              <div>No tasks available.</div> // Fallback if tasks are empty
+              <div>No tasks available.</div>
             )}
             {provided.placeholder}
           </div>
