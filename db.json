@@ -1,60 +1,49 @@
 {
-  "tasks": [
-    {
-      "id": "11",
-      "title": "Morning Workout",
-      "category": "Health",
-      "priority": "High",
-      "dueDate": "2025-01-29"
-    },
-    {
-      "id": "12",
-      "title": "Book airline tickets for traveling associates",
-      "category": "Work",
-      "priority": "High",
-      "dueDate": "2025-01-29"
-    },
-    {
-      "id": "13",
-      "title": "Plan for a weekend vacation",
-      "category": "Leisure",
-      "priority": "Low",
-      "dueDate": "2025-01-30"
-    },
-    {
-      "id": "14",
-      "title": "Go grocery shopping",
-      "category": "Personal",
-      "priority": "Medium",
-      "dueDate": "2025-02-02"
-    },
-    {
-      "id": "15",
-      "title": "Pay utility bills",
-      "category": "Finance",
-      "priority": "High",
-      "dueDate": "2025-02-02"
-    },
-    {
-      "id": "bc76",
-      "title": "Natalie's Birthday",
-      "category": "Personal",
-      "priority": "High",
-      "dueDate": "2025-04-13"
-    },
-    {
-      "id": "4ce0",
-      "title": "Go Bowling",
-      "category": "Leisure",
-      "priority": "Low",
-      "dueDate": "2025-04-13"
-    },
-    {
-      "id": "c3c8",
-      "title": "Visit sick friend",
-      "category": "Personal",
-      "priority": "Medium",
-      "dueDate": "2025-02-02"
-    }
-  ]
+
+    "tasks":[
+        {
+            "id": 1,
+            "title":"Go for Shopping",
+            "category": "Finance",
+            "priority": "High",
+            "dueDate": "2025-02-01"
+        },
+        {
+            "id": 2,
+            "title":"Work on the Labs",
+            "category": "persnonal",
+            "priority": "Medium",
+            "dueDate": "2025-02-15"
+        },
+        {
+            "id": 3,
+            "title":"Submit end of year Report",
+            "category": "Work",
+            "priority": "low",
+            "dueDate": "2025-03-01"
+        },
+
+        {
+            "id": 4,
+            "title":"Go to gym ",
+            "category": "Health",
+            "priority": "High",
+            "dueDate": "2025-01-31"
+        },
+
+          {
+            "id": 5,
+            "title":"Journaling",
+            "category": "Leisure",
+            "priority": "Medium",
+            "dueDate": "2025-02-16"
+        }
+        {
+            "id": 6,
+            "title":"Listening to music",
+            "category": "Leisure",
+            "priority": "Medium",
+            "dueDate": "2025-02-16"
+        }
+    ]
 }
