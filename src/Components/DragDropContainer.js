@@ -41,4 +41,44 @@
 
        };
 
+       return (
+         <DragDropContext onDragEnd={handleDragEnd}>
+         <Droppable droppableId="droppable-1">
+            {
+                (provided)=> (
+                    <div {...provided.droppableProps} ref={provided.innerRef}>
+                        {tasks.map((task,index) => (
+                            <Draggable key={task.id} draggableId={task.id.toString()} index={index} >
+
+                                {
+                                    (provided) => (
+                                        <div>
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                            ref={provided.innerRef}
+                                            
+                                        </div>
+                                    )
+                                }
+
+
+
+
+                            </Draggable>
+                        ))}
+                    </div>
+                )
+            }
+
+         </Droppable>
+
+
+
+
+
+
+         </DragDropContext>
+
+       )
+
  }
