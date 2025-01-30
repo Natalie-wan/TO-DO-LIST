@@ -69,7 +69,7 @@ function App() {
           />
           <Route path="/" element={<TaskList tasks={filteredTasks} />} /> {/* Default Route */}
         </Routes>
-      </Router>Y
+      </Router>
     </div>
   );
 }
