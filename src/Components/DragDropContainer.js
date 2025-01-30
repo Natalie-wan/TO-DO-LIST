@@ -12,6 +12,7 @@ function DragDropContainer() {
     axios
       .get("http://localhost:3001/tasks")
       .then((response) => {
+        console.log(response.data); // Debug: Check the structure of the data
         if (Array.isArray(response.data)) {
           setTasks(response.data);
         } else {
@@ -28,6 +29,7 @@ function DragDropContainer() {
 
   // Handle drag-and-drop reordering
   const handleDragEnd = (result) => {
+    console.log(result); // Debug: Check the result object
     if (!result.destination) return;
 
     const { source, destination } = result;
@@ -83,6 +85,7 @@ function DragDropContainer() {
                       tabIndex={0}
                       style={{
                         ...provided.draggableProps.style,
+                        userSelect: "none", // Ensure text selection is disabled
                         backgroundColor:
                           task.priority === "High"
                             ? "red"
