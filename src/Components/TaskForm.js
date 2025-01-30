@@ -78,9 +78,9 @@ function TaskForm({ onAddTask }) {
             <form onSubmit={handleSubmit} style={styles.form}>
                 <h2 style={styles.heading}>Add New Task</h2>
 
-                {/**Title input */}
+                {/**Title input *
                 <input type="text" placeholder="Task Title" value={title} 
-                onChange={(e) => setTitle(e.target.value)} style={styles.input} />
+                onChange={(e) => setTitle(e.target.value)} style={styles.input} /> */}
 
                 {/**Category input */}
                 <input type="text" placeholder="Category" value={category} 
