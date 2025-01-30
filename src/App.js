@@ -5,7 +5,6 @@ import TaskList from './Components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState([]);
-
   //Add new task handler
   const handleAddTask = (newTask) => {
     fetch("http://localhost:3001/tasks", {
@@ -27,5 +26,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
