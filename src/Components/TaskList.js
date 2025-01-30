@@ -32,7 +32,7 @@ function TaskList ({ tasks }) {
 
     return (
         <div style={styles.container}>
-            <h2 style={styles.heading}></h2>
+            <h2 style={styles.heading}>Task List</h2>
             <ul style={styles.list}>
                 {tasks.map((task) => {
                     //Determine task styling based on priority
