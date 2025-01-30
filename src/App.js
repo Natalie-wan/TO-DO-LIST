@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./NavBar";
 import TaskForm from './Components/TaskForm';
 import TaskList from './Components/TaskList';
+import CategoryFilter from './Components/CategoryFilter';
 //import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  //Fetch tasks from json-server on mount
+  useEffect(() => {
+    fetch("http://localhost:3001/tasks")
+      .then((res) => res.json())
+      .then((data) => setTasks(data))
+      .catch((error) => console.error("Error fetching tasks:", error));
+  }, []);
+
   //Add new task handler
   const handleAddTask = (newTask) => {
     fetch("http://localhost:3001/tasks", {
@@ -20,9 +32,16 @@ function App() {
   };
   return (
     <div>
-      <h1>To-Do List</h1>
-      <TaskForm onAddTask={handleAddTask} />
-      <TaskList tasks={tasks} />
+      <Router>
+        <NavBar />
+        <h1 style={{textAlign: "center" }}>To-Do List</h1>
+        <Routes>
+          <Route path="/tasks" element={<TaskList tasks={tasks} />} />
+          <Route path="/add-task" element={<TaskForm onAddTask={handleAddTask} />} />
+          <Route path="/categories" element={<CategoryFilter />} />
+          <Route path="/" element={<TaskList tasks={tasks} />} /> {/* Default Route */}
+        </Routes>
+      </Router>
     </div>
   );
 }
