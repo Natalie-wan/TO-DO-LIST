@@ -94,6 +94,16 @@ function TaskForm({ onAddTask }) {
                     <option value="Low">Low</option> 
                 </select>
 
+                {/**Category dropdown */}
+                <select value={category} onChange={(e) => setCategory(e.target.value)} style={styles.input}>
+                    <option value="" disabled>Select Category</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Health">Health</option>
+                </select>
+
                 {/**DueDate input */}
                 <input type="date" value={dueDate} 
                 onChange={(e) => setDueDate(e.target.value)} style={styles.input} />

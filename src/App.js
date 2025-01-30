@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./NavBar";
+import NavBar from "./Components/NavBar";
 import TaskForm from './Components/TaskForm';
 import TaskList from './Components/TaskList';
 import CategoryFilter from './Components/CategoryFilter';
@@ -41,7 +41,7 @@ function App() {
           <Route path="/categories" element={<CategoryFilter />} />
           <Route path="/" element={<TaskList tasks={tasks} />} /> {/* Default Route */}
         </Routes>
-      </Router>
+      </Router>Y
     </div>
   );
 }
