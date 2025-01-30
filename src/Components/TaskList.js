@@ -1,11 +1,10 @@
 import React from "react";
 
-function TaskList ({ tasks }) {
-    //Inline CSS Styles
+function TaskList({ tasks }) {
     const styles = {
         container: {
             maxWidth: "500px",
-            margin: "20px",
+            margin: "20px auto",
             padding: "20px",
             border: "1px solid #ccc",
             borderRadius: "8px",
@@ -14,7 +13,7 @@ function TaskList ({ tasks }) {
         },
         heading: {
             textAlign: "center",
-            marginBottom: "10px",
+            marginBottom: "20px",
         },
         list: {
             listStyle: "none",
@@ -27,34 +26,35 @@ function TaskList ({ tasks }) {
             fontSize: "16px",
             fontWeight: "500",
             boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.1)",
-        },    
-    }
+        },
+    };
 
     return (
         <div style={styles.container}>
             <h2 style={styles.heading}>Task List</h2>
             <ul style={styles.list}>
                 {tasks.map((task) => {
-                    //Determine task styling based on priority
                     let priorityStyle = {};
                     if (task.priority === "High") {
-                        priorityStyle = { backgroundColor: "red", color: "white"};
+                        priorityStyle = { backgroundColor: "red", color: "white" };
                     } else if (task.priority === "Medium") {
-                        priorityStyle = { backgroundColor: "orange"};
+                        priorityStyle = { backgroundColor: "orange" };
                     } else if (task.priority === "Low") {
-                        priorityStyle = { backgroundColor: "green", color: "white"}
+                        priorityStyle = { backgroundColor: "green", color: "white" };
                     }
 
                     return (
-                        <li key={task.id} style={{...styles.taskItem, ...priorityStyle}}>
-                            <strong>{task.title}</strong> - {task.category} - {task.priority} - {""}
-                            {task.dueDate} 
+                        <li
+                            key={task.id}
+                            style={{ ...styles.taskItem, ...priorityStyle }}
+                        >
+                            <strong>{task.title}</strong> - {task.category} - {task.priority} - {task.dueDate}
                         </li>
                     );
                 })}
             </ul>
         </div>
-    )
+    );
 }
 
 export default TaskList;
