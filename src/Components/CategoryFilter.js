@@ -2,33 +2,45 @@ import React from 'react';
 
 /**
  * CategoryFilter Component
- * Renders a dropdown menu that allows users to filter tasks by category
+ * Renders a minimalistic dropdown menu for filtering tasks by category.
  * 
  * @param {Object} props
  * @param {Array} props.categories - Array of category strings to populate the dropdown
- * @param {Function} props.onFilter - Callback function that handles category selection changes
+ * @param {Function} props.onFilter - Callback function to handle category selection changes
  */
 const CategoryFilter = ({ categories, onFilter }) => {
   return (
-    <div>
-
-      <label htmlFor="category-filter">Filter by Category:</label>
-      
-      {/* Select dropdown menu */}
+    <div style={{ marginBottom: "20px", textAlign: "center" }}>
+      <label htmlFor="category-filter" style={{ marginRight: "10px", fontSize: "16px", color: "#333" }}>
+        Filter by Category:
+      </label>
       <select
-        id="category-filter" // Matches the htmlFor in the label for accessibility
-        onChange={(e) => onFilter(e.target.value)} // Calls the parent's filter function with selected value
+        id="category-filter"
+        onChange={(e) => onFilter(e.target.value)}
+        style={{
+          padding: "8px 12px",
+          borderRadius: "5px",
+          border: "1px solid #ccc",
+          backgroundColor: "#f9f9f9",
+          fontSize: "14px",
+          cursor: "pointer",
+          outline: "none",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          transition: "border-color 0.3s, box-shadow 0.3s",
+        }}
+        onFocus={(e) => {
+          e.target.style.borderColor = "#007bff";
+          e.target.style.boxShadow = "0 0 8px rgba(0, 123, 255, 0.5)";
+        }}
+        onBlur={(e) => {
+          e.target.style.borderColor = "#ccc";
+          e.target.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
+        }}
       >
-        {/* Default option to show all categories */}
         <option value="All">All</option>
-        
-        {/* Map through categories array to create option elements */}
         {categories.map((category) => (
-          <option 
-            key={category} // React requires unique key for mapped elements
-            value={category} // Value that will be passed to onFilter
-          >
-            {category} {/* Display text for the option */}
+          <option key={category} value={category}>
+            {category}
           </option>
         ))}
       </select>
@@ -37,3 +49,5 @@ const CategoryFilter = ({ categories, onFilter }) => {
 };
 
 export default CategoryFilter;
+
+//testing sth

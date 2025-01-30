@@ -78,13 +78,13 @@ function TaskForm({ onAddTask }) {
             <form onSubmit={handleSubmit} style={styles.form}>
                 <h2 style={styles.heading}>Add New Task</h2>
 
-                {/**Title input */}
+                {/**Title input *
                 <input type="text" placeholder="Task Title" value={title} 
-                onChange={(e) => setTitle(e.target.value)} style={styles.input} />
+                onChange={(e) => setTitle(e.target.value)} style={styles.input} /> */}
 
-                {/**Category input */}
+                {/**Category input 
                 <input type="text" placeholder="Category" value={category} 
-                onChange={(e) => setCategory(e.target.value)} style={styles.input} />
+                onChange={(e) => setCategory(e.target.value)} style={styles.input} /> */}
 
                 {/**Priority dropdown */}
                 <select value={priority} onChange={(e) => setPriority(e.target.value)} style={styles.input}>
@@ -92,6 +92,16 @@ function TaskForm({ onAddTask }) {
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option> 
+                </select>
+
+                {/**Category dropdown */}
+                <select value={category} onChange={(e) => setCategory(e.target.value)} style={styles.input}>
+                    <option value="" disabled>Select Category</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Health">Health</option>
                 </select>
 
                 {/**DueDate input */}
