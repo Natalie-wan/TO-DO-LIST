@@ -82,9 +82,9 @@ function TaskForm({ onAddTask }) {
                 <input type="text" placeholder="Task Title" value={title} 
                 onChange={(e) => setTitle(e.target.value)} style={styles.input} />
 
-                {/**Category input */}
+                {/**Category input 
                 <input type="text" placeholder="Category" value={category} 
-                onChange={(e) => setCategory(e.target.value)} style={styles.input} />
+                onChange={(e) => setCategory(e.target.value)} style={styles.input} /> */}
 
                 {/**Priority dropdown */}
                 <select value={priority} onChange={(e) => setPriority(e.target.value)} style={styles.input}>
