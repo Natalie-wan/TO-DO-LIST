@@ -1,70 +1,70 @@
-{ 
+{
   "tasks": [
     {
-      "id": 1,
-      "title":"Go for Shopping",
+      "id": "1",
+      "title": "Go for Shopping",
       "category": "Finance",
       "priority": "High",
       "dueDate": "2025-02-01"
     },
     {
-      "id": 2,
-      "title":"Work on the Labs",
+      "id": "2",
+      "title": "Work on the Labs",
       "category": "persnonal",
       "priority": "Medium",
       "dueDate": "2025-02-15"
     },
     {
-      "id": 3,
-      "title":"Submit end of year Report",
+      "id": "3",
+      "title": "Submit end of year Report",
       "category": "Work",
       "priority": "Low",
       "dueDate": "2025-03-01"
     },
     {
-      "id": 4,
-      "title":"Go to gym ",
+      "id": "4",
+      "title": "Go to gym ",
       "category": "Health",
       "priority": "High",
       "dueDate": "2025-01-31"
     },
     {
-      "id": 5,
-      "title":"Journaling",
+      "id": "5",
+      "title": "Journaling",
       "category": "Leisure",
       "priority": "Medium",
       "dueDate": "2025-02-16"
     },
     {
-      "id": 6, 
-      "title": "Complete JavaScript project", 
-      "category": "Work", 
-      "priority": "High", 
-      "dueDate": "2025-01-28" 
+      "id": "6",
+      "title": "Complete JavaScript project",
+      "category": "Work",
+      "priority": "High",
+      "dueDate": "2025-01-28"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Read a new book",
       "category": "Leisure",
       "priority": "Low",
       "dueDate": "2025-02-05"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Attend team meeting",
       "category": "Work",
       "priority": "Medium",
       "dueDate": "2025-01-30"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Meal prep for the week",
       "category": "Health",
       "priority": "Medium",
       "dueDate": "2025-02-01"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Car maintenance appointment",
       "category": "Personal",
       "priority": "High",
@@ -106,39 +106,39 @@
       "dueDate": "2025-02-02"
     },
     {
-      "id": 16, 
-       "title": "Pick up dry cleaning", 
-       "category": "Personal", 
-       "priority": "Low", 
-       "dueDate": "2025-01-29" 
+      "id": "16",
+      "title": "Pick up dry cleaning",
+      "category": "Personal",
+      "priority": "Low",
+      "dueDate": "2025-01-29"
     },
     {
-        "id": 17,
-        "title": "Finalize vacation details",
-        "category": "Work",
-        "priority": "Leisure",
-        "dueDate": "2025-01-30"
+      "id": "17",
+      "title": "Finalize vacation details",
+      "category": "Work",
+      "priority": "Leisure",
+      "dueDate": "2025-01-30"
     },
     {
-        "id": 18,
-        "title": "Attend yoga class",
-        "category": "Health",
-        "priority": "Low",
-        "dueDate": "2025-01-30"
+      "id": "18",
+      "title": "Attend yoga class",
+      "category": "Health",
+      "priority": "Low",
+      "dueDate": "2025-01-30"
     },
     {
-      "id": 19,
-        "title": "Clean out email inbox",
-        "category": "Work",
-        "priority": "Low",
-        "dueDate": "2025-02-02"
+      "id": "19",
+      "title": "Clean out email inbox",
+      "category": "Work",
+      "priority": "Low",
+      "dueDate": "2025-02-02"
     },
     {
-        "id": 20,
-        "title": "Organize desk",
-        "category": "Work",
-        "priority": "Low",
-        "dueDate": "2025-02-02"
+      "id": "20",
+      "title": "Organize desk",
+      "category": "Work",
+      "priority": "Low",
+      "dueDate": "2025-02-02"
     },
     {
       "id": "bc76",
@@ -188,6 +188,13 @@
       "category": "Leisure",
       "priority": "Low",
       "dueDate": "2025-01-31"
+    },
+    {
+      "id": "c40b",
+      "title": "skateboarding",
+      "category": "Leisure",
+      "priority": "High",
+      "dueDate": "2025-01-03"
     }
   ]
 }
