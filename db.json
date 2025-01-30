@@ -1,69 +1,88 @@
 {
-
   "tasks": [
     {
-      "id": 1,
-      "title": "Go for Shopping",
-      "category": "Finance",
-      "priority": "High",
-      "dueDate": "2025-02-01"
-    },
-    {
-      "id": 2,
-      "title": "Work on the Labs",
-      "category": "personal",
-      "priority": "Medium",
-      "dueDate": "2025-02-15"
-    },
-    {
-      "id": 3,
-      "title": "Submit end of year Report",
-      "category": "Work",
-      "priority": "Low",
-      "dueDate": "2025-03-01"
-    },
-    {
-      "id": 4,
-      "title": "Go to gym ",
+      "id": "11",
+      "title": "Morning Workout",
       "category": "Health",
       "priority": "High",
-      "dueDate": "2025-01-31"
+      "dueDate": "2025-01-29"
     },
     {
-      "id": 5,
-      "title": "Journaling",
-      "category": "Leisure",
-      "priority": "Medium",
-      "dueDate": "2025-02-16"
+      "id": "12",
+      "title": "Book airline tickets for traveling associates",
+      "category": "Work",
+      "priority": "High",
+      "dueDate": "2025-01-29"
     },
     {
-      "id": 6,
-      "title": "Listening to music",
+      "id": "13",
+      "title": "Plan for a weekend vacation",
       "category": "Leisure",
       "priority": "Low",
-      "dueDate": "2025-02-19"
+      "dueDate": "2025-01-30"
     },
     {
-      "id": "7c0b",
-      "title": "Riding",
-      "category": "Leisure",
-      "priority": "High",
-      "dueDate": "2025-01-31"
-    },
-    {
-      "id": "f5f8",
-      "title": "Journaling",
+      "id": "14",
+      "title": "Go grocery shopping",
       "category": "Personal",
       "priority": "Medium",
-      "dueDate": "2025-02-06"
+      "dueDate": "2025-02-02"
     },
     {
-      "id": "4f16",
-      "title": "Blood Donation",
-      "category": "Health",
+      "id": "15",
+      "title": "Pay utility bills",
+      "category": "Finance",
+      "priority": "High",
+      "dueDate": "2025-02-02"
+    },
+    {
+      "id": "bc76",
+      "title": "Natalie's Birthday",
+      "category": "Personal",
+      "priority": "High",
+      "dueDate": "2025-04-13"
+    },
+    {
+      "id": "4ce0",
+      "title": "Go Bowling",
+      "category": "Leisure",
       "priority": "Low",
-      "dueDate": "2025-02-08"
+      "dueDate": "2025-04-13"
+    },
+    {
+      "id": "c3c8",
+      "title": "Visit sick friend",
+      "category": "Personal",
+      "priority": "Medium",
+      "dueDate": "2025-02-02"
+    },
+    {
+      "id": "caf4",
+      "title": "Pay car loan",
+      "category": "Finance",
+      "priority": "High",
+      "dueDate": "2025-01-30"
+    },
+    {
+      "id": "8fea",
+      "title": "Pick clothes from dry cleaning",
+      "category": "Personal",
+      "priority": "Medium",
+      "dueDate": "2025-01-31"
+    },
+    {
+      "id": "3598",
+      "title": "Dentist appointment",
+      "category": "Health",
+      "priority": "High",
+      "dueDate": "2025-01-30"
+    },
+    {
+      "id": "40a3",
+      "title": "Read a book",
+      "category": "Leisure",
+      "priority": "Low",
+      "dueDate": "2025-01-31"
     }
   ]
-
 }
