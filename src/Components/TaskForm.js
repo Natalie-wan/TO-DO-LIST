@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
 function TaskForm({ onAddTask }) {
-    //States to manage form inputs
+    // States to manage form inputs
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [priority, setPriority] = useState("");
     const [dueDate, setDueDate] = useState("");
 
-    //Handle form submission
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //Validate input fields
+        // Validate input fields
         if (!title || !category || !priority || !dueDate) {
             alert("Please fill in all fields.");
             return;
         }
 
-        //New task object
+        // New task object
         const newTask = {
             title,
             category,
@@ -25,17 +25,17 @@ function TaskForm({ onAddTask }) {
             dueDate,
         };
 
-        //Calling parent fuction to add the new task
+        // Calling parent function to add the new task
         onAddTask(newTask);
 
-        //Clear form input fields
+        // Clear form input fields
         setTitle("");
         setCategory("");
         setPriority("");
         setDueDate("");
     };
 
-    //Inline CSS Styles
+    // Inline CSS Styles
     const styles = {
         container: {
             maxWidth: "400px",
@@ -71,31 +71,40 @@ function TaskForm({ onAddTask }) {
             fontSize: "16px",
             textAlign: "center",    
         }
-    }
+    };
 
     return (
         <div style={styles.container}>
             <form onSubmit={handleSubmit} style={styles.form}>
                 <h2 style={styles.heading}>Add New Task</h2>
 
-                {/**Title input *
-                <input type="text" placeholder="Task Title" value={title} 
-                onChange={(e) => setTitle(e.target.value)} style={styles.input} /> */}
+                {/* Title input */}
+                <input 
+                    type="text" 
+                    placeholder="Task Title" 
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)} 
+                    style={styles.input} 
+                />
 
-                {/**Category input 
-                <input type="text" placeholder="Category" value={category} 
-                onChange={(e) => setCategory(e.target.value)} style={styles.input} /> */}
-
-                {/**Priority dropdown */}
-                <select value={priority} onChange={(e) => setPriority(e.target.value)} style={styles.input}>
+                {/* Priority dropdown */}
+                <select 
+                    value={priority} 
+                    onChange={(e) => setPriority(e.target.value)} 
+                    style={styles.input}
+                >
                     <option value="" disabled>Select Priority</option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
-                    <option value="Low">Low</option> 
+                    <option value="Low">Low</option>
                 </select>
 
-                {/**Category dropdown */}
-                <select value={category} onChange={(e) => setCategory(e.target.value)} style={styles.input}>
+                {/* Category dropdown */}
+                <select 
+                    value={category} 
+                    onChange={(e) => setCategory(e.target.value)} 
+                    style={styles.input}
+                >
                     <option value="" disabled>Select Category</option>
                     <option value="Leisure">Leisure</option>
                     <option value="Work">Work</option>
@@ -104,11 +113,15 @@ function TaskForm({ onAddTask }) {
                     <option value="Health">Health</option>
                 </select>
 
-                {/**DueDate input */}
-                <input type="date" value={dueDate} 
-                onChange={(e) => setDueDate(e.target.value)} style={styles.input} />
+                {/* DueDate input */}
+                <input 
+                    type="date" 
+                    value={dueDate}
+                    onChange={(e) => setDueDate(e.target.value)} 
+                    style={styles.input} 
+                />
 
-                {/**Submit button */}
+                {/* Submit button */}
                 <button type="submit" style={styles.button}>Add Task</button>
             </form>
         </div>
