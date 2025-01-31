@@ -30,15 +30,13 @@ function TaskList({ tasks, onTasksReorder }) {
         },
     };
 
-    // Handle drag-and-drop reordering
     const handleDragEnd = (result) => {
-        if (!result.destination) return; // Dropped outside the list
+        if (!result.destination) return;
 
         const reorderedTasks = Array.from(tasks);
         const [removed] = reorderedTasks.splice(result.source.index, 1);
         reorderedTasks.splice(result.destination.index, 0, removed);
 
-        // Call the parent function to update the tasks order
         onTasksReorder(reorderedTasks);
     };
 
@@ -48,11 +46,7 @@ function TaskList({ tasks, onTasksReorder }) {
             <DragDropContext onDragEnd={handleDragEnd}>
                 <Droppable droppableId="tasks">
                     {(provided) => (
-                        <ul
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}
-                            style={styles.list}
-                        >
+                        <ul {...provided.droppableProps} ref={provided.innerRef} style={styles.list}>
                             {tasks.map((task, index) => {
                                 let priorityStyle = {};
                                 if (task.priority === "High") {
@@ -64,11 +58,7 @@ function TaskList({ tasks, onTasksReorder }) {
                                 }
 
                                 return (
-                                    <Draggable
-                                        key={task.id}
-                                        draggableId={task.id.toString()}
-                                        index={index}
-                                    >
+                                    <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
                                         {(provided) => (
                                             <li
                                                 ref={provided.innerRef}
