@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Go for Shopping",
+      "title": "Updated Task",
       "category": "Finance",
       "priority": "High",
       "dueDate": "2025-02-01"
@@ -195,6 +195,20 @@
       "category": "Leisure",
       "priority": "High",
       "dueDate": "2025-01-03"
+    },
+    {
+      "id": "e9d8",
+      "title": "Cooking",
+      "category": "Health",
+      "priority": "Low",
+      "dueDate": "2025-02-07"
+    },
+    {
+      "id": "ecbb",
+      "title": "Play Sudo game",
+      "category": "Leisure",
+      "priority": "Medium",
+      "dueDate": "2025-02-07"
     }
   ]
 }
