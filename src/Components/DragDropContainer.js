@@ -1,30 +1,11 @@
+
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function DragDropContainer() {
-  const [tasks, setTasks] = useState([]);
+function DragDropContainer({ tasks, setTasks }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Fetch tasks from the server when the component mounts
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/tasks")
-      .then((response) => {
-        if (Array.isArray(response.data)) {
-          setTasks(response.data);
-        } else {
-          setError("Invalid data format received from the server.");
-        }
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching tasks:", error);
-        setError("Failed to load tasks. Please try again later.");
-        setIsLoading(false);
-      });
-  }, []);
 
   // Handle drag-and-drop reordering
   const handleDragEnd = (result) => {
