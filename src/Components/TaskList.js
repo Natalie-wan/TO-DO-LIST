@@ -1,32 +1,32 @@
-import React from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import React from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function TaskList({ tasks, onTasksReorder }) {
     const styles = {
         container: {
-            maxWidth: "500px",
-            margin: "20px auto",
-            padding: "20px",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
-            backgroundColor: "#f9f9f9",
+            maxWidth: '500px',
+            margin: '20px auto',
+            padding: '20px',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#f9f9f9',
         },
         heading: {
-            textAlign: "center",
-            marginBottom: "20px",
+            textAlign: 'center',
+            marginBottom: '20px',
         },
         list: {
-            listStyle: "none",
-            padding: "0",
+            listStyle: 'none',
+            padding: '0',
         },
         taskItem: {
-            marginBottom: "10px",
-            padding: "12px",
-            borderRadius: "5px",
-            fontSize: "16px",
-            fontWeight: "500",
-            boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.1)",
+            marginBottom: '10px',
+            padding: '12px',
+            borderRadius: '5px',
+            fontSize: '16px',
+            fontWeight: '500',
+            boxShadow: '1px 1px 5px rgba(0, 0, 0, 0.1)',
         },
     };
 
@@ -55,12 +55,12 @@ function TaskList({ tasks, onTasksReorder }) {
                         >
                             {tasks.map((task, index) => {
                                 let priorityStyle = {};
-                                if (task.priority === "High") {
-                                    priorityStyle = { backgroundColor: "red", color: "white" };
-                                } else if (task.priority === "Medium") {
-                                    priorityStyle = { backgroundColor: "orange" };
-                                } else if (task.priority === "Low") {
-                                    priorityStyle = { backgroundColor: "green", color: "white" };
+                                if (task.priority === 'High') {
+                                    priorityStyle = { backgroundColor: 'red', color: 'white' };
+                                } else if (task.priority === 'Medium') {
+                                    priorityStyle = { backgroundColor: 'orange' };
+                                } else if (task.priority === 'Low') {
+                                    priorityStyle = { backgroundColor: 'green', color: 'white' };
                                 }
 
                                 return (

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
@@ -52,8 +53,8 @@ function App() {
         }
     };
 
-    // Extract unique categories from tasks
-    const categories = [...new Set(tasks.map((task) => task.category))];
+    // Extract unique categories from the full tasks list
+    const categories = tasks.length > 0 ? [...new Set(tasks.map((task) => task.category))] : [];
 
     // Handle category filter changes
     const handleFilter = (selectedCategory) => {
@@ -85,18 +86,14 @@ function App() {
 
     // Handle task reordering after drag and drop
     const handleTaskReorder = (reorderedTasks) => {
-        // Update the filtered tasks
+        // Update the full tasks list
+        setTasks(reorderedTasks);
+
+        // Update the filtered tasks list
         setFilteredTasks(reorderedTasks);
 
-        // Update the full tasks list
-        const updatedTasks = tasks.map((task) => {
-            const reorderedTask = reorderedTasks.find((t) => t.id === task.id);
-            return reorderedTask ? reorderedTask : task;
-        });
-        setTasks(updatedTasks);
-
         // Persist the new order to the server
-        updateTasksOrder(updatedTasks);
+        updateTasksOrder(reorderedTasks);
     };
 
     return (
