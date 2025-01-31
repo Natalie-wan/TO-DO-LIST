@@ -1,7 +1,9 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-function TaskList({ tasks, onTasksReorder }) {
+
+function TaskList({ tasks }) {
+
     const styles = {
         container: {
             maxWidth: "500px",
@@ -30,6 +32,7 @@ function TaskList({ tasks, onTasksReorder }) {
         },
     };
 
+
     // Handle drag-and-drop reordering
     const handleDragEnd = (result) => {
         if (!result.destination) return; // Dropped outside the list
@@ -42,9 +45,11 @@ function TaskList({ tasks, onTasksReorder }) {
         onTasksReorder(reorderedTasks);
     };
 
+
     return (
         <div style={styles.container}>
             <h2 style={styles.heading}>Task List</h2>
+
             <DragDropContext onDragEnd={handleDragEnd}>
                 <Droppable droppableId="tasks">
                     {(provided) => (
@@ -91,6 +96,29 @@ function TaskList({ tasks, onTasksReorder }) {
                     )}
                 </Droppable>
             </DragDropContext>
+
+            <ul style={styles.list}>
+                {tasks.map((task) => {
+                    let priorityStyle = {};
+                    if (task.priority === "High") {
+                        priorityStyle = { backgroundColor: "red", color: "white" };
+                    } else if (task.priority === "Medium") {
+                        priorityStyle = { backgroundColor: "orange" };
+                    } else if (task.priority === "Low") {
+                        priorityStyle = { backgroundColor: "green", color: "white" };
+                    }
+
+                    return (
+                        <li
+                            key={task.id}
+                            style={{ ...styles.taskItem, ...priorityStyle }}
+                        >
+                            <strong>{task.title}</strong> - {task.category} - {task.priority} - {task.dueDate}
+                        </li>
+                    );
+                })}
+            </ul>
+
         </div>
     );
 }
