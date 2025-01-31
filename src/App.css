@@ -1,18 +1,14 @@
+
+/* General App Styling */
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header Styling */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +20,39 @@
   color: white;
 }
 
+/* Link Styling */
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Droppable Area Styling */
+.droppable-area {
+  background-color: #ffffff; /* White background for contrast */
+  border: 2px dashed #ccc; /* Dashed border to indicate droppable area */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  padding: 20px; /* Space inside the droppable area */
+  margin: auto; /* Center the droppable area */
+  min-height: 200px; /* Ensure the area is large enough to drop items */
 }
+
+/* Draggable Item Styling */
+.draggable-item {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ddd; /* Light gray border */
+  padding: 15px; /* Space inside the draggable item */
+  margin-bottom: 10px; /* Space between items */
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+
+}
+
+/* Hover Effect on Draggable Items */
+.draggable-item:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2); /* Stronger shadow on hover */
+}
+
+/* Active Dragging State for Draggable Items */
+.draggable-item.is-dragging {
+    background-color:#dcd-
