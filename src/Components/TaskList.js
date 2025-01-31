@@ -42,7 +42,7 @@ function TaskList({ tasks }) {
         reorderedTasks.splice(result.destination.index, 0, removed);
 
         // Call the parent function to update the tasks order
-        onTasksReorder(reorderedTasks);
+        //onTasksReorder(reorderedTasks);
     };
 
 
