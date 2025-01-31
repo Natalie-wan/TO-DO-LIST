@@ -1,13 +1,5 @@
 import React from 'react';
 
-/**
- * CategoryFilter Component
- * Renders a minimalistic dropdown menu for filtering tasks by category.
- * 
- * @param {Object} props
- * @param {Array} props.categories - Array of category strings to populate the dropdown
- * @param {Function} props.onFilter - Callback function to handle category selection changes
- */
 const CategoryFilter = ({ categories, onFilter }) => {
   return (
     <div style={{ marginBottom: "20px", textAlign: "center" }}>
@@ -49,4 +41,3 @@ const CategoryFilter = ({ categories, onFilter }) => {
 };
 
 export default CategoryFilter;
-

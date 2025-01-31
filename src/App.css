@@ -55,4 +55,5 @@
 
 /* Active Dragging State for Draggable Items */
 .draggable-item.is-dragging {
-    background-color:#dcd-
+    background-color:#dcd;
+}
