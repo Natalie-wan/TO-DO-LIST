@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
@@ -85,18 +86,14 @@ function App() {
 
     // Handle task reordering after drag and drop
     const handleTaskReorder = (reorderedTasks) => {
-        // Update the filtered tasks
+        // Update the full tasks list
+        setTasks(reorderedTasks);
+
+        // Update the filtered tasks list
         setFilteredTasks(reorderedTasks);
 
-        // Update the full tasks list
-        const updatedTasks = tasks.map((task) => {
-            const reorderedTask = reorderedTasks.find((t) => t.id === task.id);
-            return reorderedTask ? reorderedTask : task;
-        });
-        setTasks(updatedTasks);
-
         // Persist the new order to the server
-        updateTasksOrder(updatedTasks);
+        updateTasksOrder(reorderedTasks);
     };
 
     return (
